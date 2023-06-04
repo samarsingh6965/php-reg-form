@@ -13,14 +13,14 @@ const Home = () => {
   return (
     <>
       <div className="w-full flex justify-center py-8">
-        {login ? <div className="max-w-[600px] flex flex-col px-4 border py-4 gap-2">
+        {login ? <div className="max-w-[600px] w-[500px] bg-pink-100 flex flex-col px-4 shadow-2xl py-8 gap-2">
           <h1><span className='text-blue-500 font-medium text-lg'>Welcome : </span>{name}</h1>
           <h1><span className='text-blue-500 font-medium text-lg'>Your Email is : </span>{email}</h1>
           <h1><span className='text-blue-500 font-medium text-lg'>Your Number is : </span>{mobile}</h1>
         </div>
-        :<div className="max-w-[600px] flex flex-col border gap-2 relative">
+        :<div className="max-w-[600px] border-2 border-gray-500 shadow-2xl flex flex-col shadow-gray-700 gap-2 relative">
         <img src={login_error} alt="login_error" className='w-full h-full'/>
-        <p className='absolute bottom-10 left-1/3 text-white text-lg'><Link to='/login' className='hover:text-green-500'>Log-in</Link> to view Contents.</p>
+        <p className='absolute bottom-10 left-1/3 text-white text-lg'>Kindly <Link to='/login' className='hover:text-green-500'>log-in</Link> to view contents.</p>
       </div>}
       </div>
     </>
