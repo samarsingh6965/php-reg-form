@@ -47,7 +47,7 @@ const Home = () => {
         {login ?
           <>
             {/* Task Table  */}
-            <div className="w-full h-[405px] -z-50 overflow-auto scrollbar-none px-32 mt-4">
+            <div className="w-full max-h-[405px] h-auto -z-50 overflow-auto scrollbar-none px-32 mt-4">
               <table className='w-full overflow-auto mx-auto border'>
                 <thead className='sticky top-[-0.5px] border z-50 bg-blue-600 text-white'>
                   <tr className=' border'>
@@ -71,7 +71,7 @@ const Home = () => {
                 </tbody>
               </table>
             </div>
-            <div className='w-full flex justify-end px-8 my-2'>
+            <div className='w-full flex justify-end px-32 my-2'>
               <Link to='/createtask' className='px-4 py-2 bg-blue-500 text-white rounded-md'>Add Task</Link>
             </div>
           </>

@@ -59,14 +59,14 @@ const DeletedTask = () => {
         {login ?
           <>
             {/* Deleted Task Table  */}
-            <div className="w-full h-[405px] -z-50 overflow-auto scrollbar-none px-32 mt-4">
+            <div className="w-full max-h-[405px] h-auto -z-50 overflow-auto scrollbar-none px-32 mt-4">
               <table className='w-full overflow-auto mx-auto border'>
                 <thead className='sticky top-[-0.5px] border z-50 bg-red-600 text-white'>
                   <tr className=' border'>
                     <th className='w-16 border'>S No.</th>
                     <th className='border p-2'>Deleted Task</th>
                     <th className='border max-[550px]:hidden p-2'>Deleted Description</th>
-                    <th className='border p-2'>Recover</th>
+                    <th className='border p-2'>Restore</th>
                     <th className='border p-2'>Delete</th>
                   </tr>
                 </thead>
@@ -82,9 +82,6 @@ const DeletedTask = () => {
                   )}
                 </tbody>
               </table>
-            </div>
-            <div className='w-full flex justify-end px-8 my-2'>
-              <Link to='/createtask' className='px-4 py-2 bg-blue-500 text-white rounded-md'>Add Task</Link>
             </div>
           </>
           :
