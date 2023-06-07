@@ -6,16 +6,15 @@ import { Link, useNavigate } from 'react-router-dom';
 const Register = () => {
 
     const navigate = useNavigate();
-
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [mobile, setMobile] = useState('');
     const [pass, setPass] = useState('');
     const [cnfpass, setCnfPass] = useState('');
-    // const [image, setImage] = useState('');
     const [errMessage, setErrMessage] = useState('');
 
-    const handleSubmit = async(e) => {
+    //for sign-up user
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const url = 'http://localhost/reg-form/registration.php';
         const FD = new FormData();
@@ -29,16 +28,16 @@ const Register = () => {
         } else {
             try {
                 let response = await axios.post(url, FD)
-                if(response?.data?.code === 'SUCCESS'){
+                if (response?.data?.code === 'SUCCESS') {
                     navigate('/login');
-                }else{
+                } else {
                     setErrMessage(response?.data?.message)
                 }
-            } catch ({response}) {
+            } catch ({ response }) {
                 console.log(response)
             }
         }
-        
+
     }
 
     return (
@@ -46,8 +45,7 @@ const Register = () => {
             <div id='signup' className="absolute top-0 w-full h-screen bg-no-repeat bg-cover bg-blend-lighten flex justify-center items-center">
                 <div className="h-[330px]  max-[700px]:flex-col-reverse max-[700px]:h-auto max-[700px]:p-4 max-[700px]:w-[100%] shadow-2xl px-4 mx-auto flex items-center justify-center border">
                     <form onSubmit={handleSubmit} className="max-w-[380px] relative max-[700px]:w-[100%] px-10 border-black flex flex-col items-center gap-1.5">
-                    <h1 className='absolute left-4 -top-7 text-sm text-red-600'>{errMessage}</h1>
-                        {/* <input required value={image} onChange={(e) => setImage(e.target.files[0])} className='w-full border focus:border-sky-500 file:bg-blue-400 file:border-none file:rounded-md file:text-black file:p-1 file:m-1 outline-none rounded-md border-black' type="file" name="image" id="image" /> */}
+                        <h1 className='absolute left-4 -top-7 text-sm text-red-600'>{errMessage}</h1>
                         <input required minLength={3} value={name} onChange={(e) => setName(e.target.value)} className='w-[350px] max-[700px]:w-[100%] bg-transparent p-1 border-b placeholder:text-gray-500 focus:border-sky-500 outline-none rounded-md border-b-red-600' type="text" name="name" id="name" placeholder='Enter Name' />
                         <input required minLength={12} value={email} onChange={(e) => setEmail(e.target.value)} className='w-[350px] max-[700px]:w-[100%] bg-transparent p-1 border-b placeholder:text-gray-500 focus:border-sky-500 outline-none rounded-md border-b-red-600' type="email" name="email" id="email" placeholder='Enter email' />
                         <input required min={10} value={mobile} onChange={(e) => setMobile(e.target.value)} className='w-[350px] max-[700px]:w-[100%] bg-transparent p-1 border-b placeholder:text-gray-500 focus:border-sky-500 outline-none rounded-md border-b-red-600' type="tel" name="mobile" id="mobile" placeholder='Enter Mobile' />

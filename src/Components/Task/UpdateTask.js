@@ -7,7 +7,7 @@ const UpdateTask = () => {
 
     const [todo, setTodo] = useState('');
     // console.log(todo)
-    const {id} = useParams();
+    const { id } = useParams();
 
     const navigate = useNavigate();
     const [taskName, setEditTask] = useState('');
@@ -15,9 +15,7 @@ const UpdateTask = () => {
     const [description, setEditDesciption] = useState('');
     const [errMessage, setErrMessage] = useState('');
 
-    // const email = localStorage.getItem(['email']);
-
-    //get task value
+    //get task value for updation
     const getData = () => {
         const url = `http://localhost/reg-form/task/get_by_id.php?id=${id}`;
         axios.get(url).then((response) => {
@@ -30,7 +28,7 @@ const UpdateTask = () => {
         getData();
     }, []);
 
-    //update task
+    //updation of task
     const handleSubmit = async (e) => {
         const url = `http://localhost/reg-form/task/update.php?id=${id}`;
         e.preventDefault();

@@ -8,9 +8,9 @@ const CreateTask = () => {
     const [task, setTask] = useState('');
     const [description, setDesciption] = useState('');
     const [errMessage, setErrMessage] = useState('');
-
     const email = localStorage.getItem(['email']);
-    
+
+    // to create a new task
     const handleSubmit = async (e) => {
         const url = 'http://localhost/reg-form/task/create.php';
         e.preventDefault();

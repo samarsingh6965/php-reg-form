@@ -1,18 +1,17 @@
 
 import { Link } from 'react-router-dom';
-import { RiEditBoxFill} from 'react-icons/ri';
-import { BsTrash3Fill} from 'react-icons/bs';
+import { RiEditBoxFill } from 'react-icons/ri';
+import { BsTrash3Fill } from 'react-icons/bs';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const Home = () => {
 
   const [task, setTask] = useState([]);
-
   const email = localStorage.getItem(['email']);
   const login = localStorage.getItem('login');
 
-//fetching data for table
+  //fetching data for table
   const getData = () => {
     axios.get(`http://localhost/reg-form/task/get.php?email=${email}`).then((response) => {
       setTask(response.data)
@@ -26,20 +25,20 @@ const Home = () => {
 
   let sno = 1;
 
-  //temporary delete task
+  //temporarily deletion of task
   const handleDelete = async (id) => {
     const url = `http://localhost/reg-form/task/temporary_delete.php?id=${id}`;
     try {
-        const response = await axios.put(url);
-        if (response.data?.code === 'SUCCESS') {
-          getData();
-        } else {
-            console.log(response?.data?.message)
-        }
-    } catch ({ response }) {
+      const response = await axios.put(url);
+      if (response.data?.code === 'SUCCESS') {
+        getData();
+      } else {
         console.log(response?.data?.message)
+      }
+    } catch ({ response }) {
+      console.log(response?.data?.message)
     }
-}
+  }
 
 
   return (

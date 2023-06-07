@@ -8,11 +8,10 @@ const Navbar = ({ setLogin }) => {
 
   const login = localStorage.getItem('login');
   const name = localStorage.getItem(['name']);
-
   const [isMenu, setisMenu] = useState(false);
-
   const navigate = useNavigate();
 
+  // user Log-out
   const handleLogout = async () => {
     const url = "http://localhost/reg-form/logout.php";
     try {
@@ -22,7 +21,6 @@ const Navbar = ({ setLogin }) => {
         localStorage.clear();
         setisMenu(false);
         navigate('/login')
-        // window.location.reload();
       } else {
         console.log(response?.data?.message)
       }
@@ -31,6 +29,7 @@ const Navbar = ({ setLogin }) => {
     }
   }
 
+  // to toggle logout button
   const logout = () => {
     setisMenu(!isMenu)
   }

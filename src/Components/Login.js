@@ -3,31 +3,29 @@ import logo from '../Assets/login.jpg'
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Login = ({setLogin}) => {
-    
+const Login = ({ setLogin }) => {
+
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [errMessage, setErrMessage] = useState('');
 
+    // to log-in user
     const handleSubmit = async (e) => {
         e.preventDefault();
         const url = 'http://localhost/reg-form/login.php';
         const FD = new FormData();
-        // FD.append('image',image);
         FD.append('email', email);
         FD.append('password', pass);
         try {
             const response = await axios.post(url, FD);
             if (response.data?.code === 'SUCCESS') {
-                localStorage.setItem('name',response.data.user[0])
-                localStorage.setItem('email',response.data.user[1])
-                localStorage.setItem('mobile',response.data.user[2])
+                localStorage.setItem('name', response.data.user[0])
+                localStorage.setItem('email', response.data.user[1])
+                localStorage.setItem('mobile', response.data.user[2])
                 const logIn = setLogin(true);
                 localStorage.setItem('login', logIn)
-                // point to be asked
                 navigate('/');
-                // console.log(response?.data?.user)
             } else {
                 setErrMessage(response?.data?.message)
                 setLogin(false);
@@ -37,7 +35,7 @@ const Login = ({setLogin}) => {
             setLogin(false);
         }
     }
-    
+
     return (
         <>
             <div id='signup' className="absolute top-0 w-full h-screen bg-no-repeat bg-cover bg-blend-lighten flex justify-center items-center">
