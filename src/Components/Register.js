@@ -19,7 +19,6 @@ const Register = () => {
         e.preventDefault();
         const url = 'http://localhost/reg-form/registration.php';
         const FD = new FormData();
-        // FD.append('image',image);
         FD.append('name', name);
         FD.append('email', email);
         FD.append('mobile', mobile);

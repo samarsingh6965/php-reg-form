@@ -4,8 +4,8 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Login = ({setLogin}) => {
+    
     const navigate = useNavigate();
-
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [errMessage, setErrMessage] = useState('');
@@ -26,7 +26,7 @@ const Login = ({setLogin}) => {
                 const logIn = setLogin(true);
                 localStorage.setItem('login', logIn)
                 // point to be asked
-                navigate('/home');
+                navigate('/');
                 // console.log(response?.data?.user)
             } else {
                 setErrMessage(response?.data?.message)
@@ -51,7 +51,7 @@ const Login = ({setLogin}) => {
                     <div className="max-w-[280px] relative max-[700px]:w-[100%] max-[700px]:px-2 h-auto">
                         <img src={logo} alt="form" className='w-full h-[150px] rounded-md after:contrast-200' />
                         <div className="max-w-[300px] absolute text-white bottom-2 right-2 flex justify-center">
-                            <p>If new here ! <Link to='/' className='text-green-400 hover:text-green-500 transition-all duration-100 ease-in-out'>Click Here.</Link></p>
+                            <p>If new here ! <Link to='/register' className='text-green-400 hover:text-green-500 transition-all duration-100 ease-in-out'>Click Here.</Link></p>
                         </div>
                     </div>
                 </div>
