@@ -20,9 +20,9 @@ const Login = ({ setLogin }) => {
         try {
             const response = await axios.post(url, FD);
             if (response.data?.code === 'SUCCESS') {
-                localStorage.setItem('name', response.data.user[0])
-                localStorage.setItem('email', response.data.user[1])
-                localStorage.setItem('mobile', response.data.user[2])
+                localStorage.setItem('name', response.data.user[1])
+                localStorage.setItem('email', response.data.user[2])
+                localStorage.setItem('mobile', response.data.user[3])
                 const logIn = setLogin(true);
                 localStorage.setItem('login', logIn)
                 navigate('/');

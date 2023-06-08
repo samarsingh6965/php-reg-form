@@ -1,11 +1,10 @@
-
 import { Link } from 'react-router-dom';
 import { RiEditBoxFill } from 'react-icons/ri';
 import { BsTrash3Fill } from 'react-icons/bs';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const Home = () => {
+const Home = ({setCreateTask}) => {
 
   const [task, setTask] = useState([]);
   const email = localStorage.getItem(['email']);
@@ -64,7 +63,7 @@ const Home = () => {
                       <td className='w-16 border text-center'>{sno++}</td>
                       <td className='border p-2'>{e.task}</td>
                       <td className='border max-[550px]:hidden p-2'>{e.desc}</td>
-                      <td className='w-[70px] border py-2'><Link to={`/updatetask/${e.sno}`}><RiEditBoxFill className='text-2xl mx-auto cursor-pointer' /></Link></td>
+                      <td className='w-[70px] border py-2'><Link onClick={() => setCreateTask(false)} to={`/createtask/${e.sno}`}><RiEditBoxFill className='text-2xl mx-auto cursor-pointer' /></Link></td>
                       <td onClick={() => handleDelete(e.sno)} className='delete w-[70px] border py-2'><BsTrash3Fill className='text-2xl mx-auto cursor-pointer  hover:text-red-500 transition-all duration-100 ease-in-out' /></td>
                     </tr>
                   )}
@@ -72,7 +71,7 @@ const Home = () => {
               </table>
             </div>
             <div className='w-full flex justify-end px-32 my-2'>
-              <Link to='/createtask' className='px-4 py-2 bg-blue-500 text-white rounded-md'>Add Task</Link>
+              <Link onClick={() => setCreateTask(true)} to='/createtask/:id' className='px-4 py-2 bg-blue-500 text-white rounded-md'>Add Task</Link>
             </div>
           </>
           :
