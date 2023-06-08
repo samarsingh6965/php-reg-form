@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 #signup{
     background-image: url(./Assets/bg.jpg);
 }
