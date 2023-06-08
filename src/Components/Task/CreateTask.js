@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from 'react'
-
 import create from '../../Assets/todocreate.jpg';
-
 import axios from 'axios';
-
 import { useNavigate } from 'react-router-dom';
-
 import { useParams } from 'react-router-dom';
-
 import update from '../../Assets/todoupdate.jpg'
 
-
-
-
 const CreateTask = ({ createTask }) => {
+    const [todo, setTodo] = useState('');
+    const { id } = useParams();
     const navigate = useNavigate();
     const [task, setTask] = useState('');
     const [description, setDesciption] = useState('');
@@ -38,14 +32,6 @@ const CreateTask = ({ createTask }) => {
             setErrMessage(response?.data?.message)
         }
     }
-    const [todo, setTodo] = useState('');
-    // console.log(todo)
-    const { id } = useParams();
-    // const navigate = useNavigate();
-    // const [taskName, setEditTask] = useState('');
-    // // console.log(taskName)
-    // const [description, setEditDesciption] = useState('');
-    // const [errMessage, setErrMessage] = useState('');
 
     //get task value for updation
     const getData = () => {

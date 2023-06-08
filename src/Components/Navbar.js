@@ -13,10 +13,20 @@ const Navbar = ({ setLogin }) => {
 
   // user Log-out
   const handleLogout = async () => {
-    setLogin(false)
-    localStorage.clear();
-    setisMenu(false);
-    navigate('/login')
+    const url = 'http://localhost/reg-form/logout.php';
+    try {
+      const response = await axios.get(url);
+      if (response.data?.code === 'SUCCESS') {
+        setLogin(false)
+        localStorage.clear();
+        setisMenu(false);
+        navigate('/login')
+      } else {
+        console.log(response?.data?.message)
+      }
+    } catch ({ response }) {
+      console.log(response?.data?.message)
+    }
   }
 
   // to toggle logout button
