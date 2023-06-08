@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
-import logo from '../Assets/reg-form-img.jpg'
+import logo from '../../Assets/reg-form-img.jpg'
 import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {

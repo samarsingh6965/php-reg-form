@@ -1,13 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Register from './Components/Register';
-import Login from './Components/Login';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import { useState } from 'react';
 import CreateTask from './Components/Task/CreateTask';
 // import UpdateTask from './Components/Task/UpdateTask';
 import DeletedTask from './Components/Task/DeletedTask';
+import Register from './Components/Authentication/Register';
+import Login from './Components/Authentication/Login';
 
 
 function App() {
