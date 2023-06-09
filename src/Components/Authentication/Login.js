@@ -23,15 +23,15 @@ const Login = ({ setLogin }) => {
                 localStorage.setItem('email', response.data.user[2])
                 localStorage.setItem('mobile', response.data.user[3])
                 const logIn = setLogin(true);
-                localStorage.setItem('login', logIn)
+                localStorage.setItem('login', logIn);
                 navigate('/');
             } else {
                 setErrMessage(response?.data?.message)
-                setLogin(false);
+                // setLogin(false);
             }
         } catch ({ response }) {
             setErrMessage(response?.data?.message)
-            setLogin(false);
+            // setLogin(false);
         }
     }
 
