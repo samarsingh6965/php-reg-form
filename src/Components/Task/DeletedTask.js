@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { MdRestore } from 'react-icons/md';
 import { RiDeleteBin2Fill } from 'react-icons/ri';
 import { useEffect, useState } from 'react';
@@ -10,12 +10,16 @@ const DeletedTask = () => {
   const [task, setTask] = useState([]);
   const navigate = useNavigate();
 
-  const email = localStorage.getItem(['email']);
-  const login = localStorage.getItem('login');
+  // const email = localStorage.getItem(['email']);
+  const login = localStorage.getItem('token');
 
   //fetch data for recycle-bin tale
   const getData = () => {
-    axios.get(`http://localhost/reg-form/task/get_deleted_task.php?email=${email}`).then((response) => {
+    axios.get(`http://localhost/reg-form/task/get_deleted_task.php`,{
+      headers:{
+        token:localStorage.getItem('token')
+      },
+    }).then((response) => {
       setTask(response.data)
     }).catch((error) => {
       console.log(error);

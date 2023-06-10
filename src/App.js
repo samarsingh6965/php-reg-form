@@ -11,15 +11,14 @@ import Login from './Components/Authentication/Login';
 
 
 function App() {
-  const [login,setLogin] = useState(false);
   const [createTask,setCreateTask] = useState(false);
    
   return (
     <>
-    <Navbar login={login} setLogin={setLogin}/>
+    <Navbar/>
     <Routes>
       <Route path='/register' element={<Register />}/>
-      <Route path='/login' element={<Login setLogin={setLogin} />}/>
+      <Route path='/login' element={<Login/>}/>
       <Route index path='/' element={<Home setCreateTask={setCreateTask}/>}/>
       <Route path='/createtask/:id' element={<CreateTask createTask={createTask}/>}/>
       {/* <Route path='/updatetask/:id' element={<UpdateTask/>}/> */}

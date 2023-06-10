@@ -3,7 +3,7 @@ import logo from '../../Assets/login.jpg'
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Login = ({ setLogin }) => {
+const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
@@ -19,11 +19,10 @@ const Login = ({ setLogin }) => {
         try {
             const response = await axios.post(url, FD);
             if (response.data?.code === 'SUCCESS') {
-                localStorage.setItem('name', response.data.user[1])
-                localStorage.setItem('email', response.data.user[2])
-                localStorage.setItem('mobile', response.data.user[3])
-                const logIn = setLogin(true);
-                localStorage.setItem('login', logIn);
+                localStorage.setItem('name', response.data.user['name'])
+                localStorage.setItem('email', response.data.user['email'])
+                localStorage.setItem('img_url', response.data.user['image_url'])
+                localStorage.setItem('token', response.data.token);
                 navigate('/');
             } else {
                 setErrMessage(response?.data?.message)

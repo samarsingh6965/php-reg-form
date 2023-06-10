@@ -7,12 +7,16 @@ import axios from 'axios';
 const Home = ({setCreateTask}) => {
 
   const [task, setTask] = useState([]);
-  const email = localStorage.getItem(['email']);
-  const login = localStorage.getItem('login');
+  // const email = localStorage.getItem(['email']);
+  const login = localStorage.getItem('token');
 
   //fetching data for table
   const getData = () => {
-    axios.get(`http://localhost/reg-form/task/get.php?email=${email}`).then((response) => {
+    axios.get(`http://localhost/reg-form/task/get.php`,{
+      headers:{
+        token:localStorage.getItem('token')
+      },
+    }).then((response) => {
       setTask(response.data)
     }).catch((error) => {
       console.log(error);

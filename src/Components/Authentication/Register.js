@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 const Register = () => {
 
     const navigate = useNavigate();
-    // const [image, setImage] = useState('');
+    const [image, setImage] = useState();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [mobile, setMobile] = useState('');
@@ -19,7 +19,7 @@ const Register = () => {
         e.preventDefault();
         const url = 'http://localhost/reg-form/registration.php';
         const FD = new FormData();
-        // FD.append('image', image);
+        FD.append('image', image);
         FD.append('name', name);
         FD.append('email', email);
         FD.append('mobile', mobile);
@@ -48,7 +48,7 @@ const Register = () => {
                 <div className="h-[330px]  max-[700px]:flex-col-reverse max-[700px]:h-auto max-[700px]:p-4 max-[700px]:w-[100%] shadow-2xl px-4 mx-auto flex items-center justify-center border">
                     <form onSubmit={handleSubmit} className="max-w-[380px] relative max-[700px]:w-[100%] px-10 border-black flex flex-col items-center gap-1.5">
                         <h1 className='absolute left-4 -top-7 text-sm text-red-600'>{errMessage}</h1>
-                        {/* <input required type="file" name="image" id="image" onChange={(e) => setImage(e.target.files[0])} className='w-[350px] max-[700px]:w-[100%] bg-transparent p-1 border-b placeholder:text-gray-500 focus:border-sky-500 outline-none rounded-md border-b-red-600'/> */}
+                        <input required type="file" name="image" id="image" onChange={(e) => setImage(e.target.files[0])} className='w-[350px] max-[700px]:w-[100%] bg-transparent p-1 border-b placeholder:text-gray-500 focus:border-sky-500 outline-none rounded-md border-b-red-600'/>
                         <input required minLength={3} onChange={(e) => setName(e.target.value)} className='w-[350px] max-[700px]:w-[100%] bg-transparent p-1 border-b placeholder:text-gray-500 focus:border-sky-500 outline-none rounded-md border-b-red-600' type="text" name="name" id="name" placeholder='Enter Name' />
                         <input required minLength={12} onChange={(e) => setEmail(e.target.value)} className='w-[350px] max-[700px]:w-[100%] bg-transparent p-1 border-b placeholder:text-gray-500 focus:border-sky-500 outline-none rounded-md border-b-red-600' type="email" name="email" id="email" placeholder='Enter email' />
                         <input required min={10} onChange={(e) => setMobile(e.target.value)} className='w-[350px] max-[700px]:w-[100%] bg-transparent p-1 border-b placeholder:text-gray-500 focus:border-sky-500 outline-none rounded-md border-b-red-600' type="tel" name="mobile" id="mobile" placeholder='Enter Mobile' />
