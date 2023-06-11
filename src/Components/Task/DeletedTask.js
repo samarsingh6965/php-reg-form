@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { MdRestore } from 'react-icons/md';
 import { RiDeleteBin2Fill } from 'react-icons/ri';
 import { useEffect, useState } from 'react';
+import loginFirst from '../../Assets/login-please.jpg';
 import axios from 'axios';
 
 const DeletedTask = () => {
@@ -91,7 +92,7 @@ const DeletedTask = () => {
           :
           <div className="w-full flex flex-col justify-center py-8 px-8 relative">
             <div className='w-full flex justify-center items-center'>
-              <p className="text-2xl text-red-600"> Kindly Login First...</p>
+            <img src={loginFirst} alt="user-not-loggedd-in" className='w-[70%] h-[440px]'/>
             </div>
           </div>}
       </div>

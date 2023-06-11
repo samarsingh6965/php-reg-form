@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 import { RiEditBoxFill } from 'react-icons/ri';
 import { BsTrash3Fill } from 'react-icons/bs';
 import { useEffect, useState } from 'react';
+import loginFirst from '../Assets/login-please.jpg';
 import axios from 'axios';
 
 const Home = ({setCreateTask}) => {
 
   const [task, setTask] = useState([]);
-  // const email = localStorage.getItem(['email']);
   const login = localStorage.getItem('token');
 
   //fetching data for table
@@ -79,9 +79,9 @@ const Home = ({setCreateTask}) => {
             </div>
           </>
           :
-          <div className="w-full flex flex-col justify-center py-8 px-8 relative">
+          <div className="w-full flex flex-col justify-center px-8 relative">
             <div className='w-full flex justify-center items-center'>
-              <p className="text-2xl text-red-600"> Kindly Login First...</p>
+              <img src={loginFirst} alt="user-not-loggedd-in" className='w-[70%] h-[500px]'/>
             </div>
           </div>}
       </div>
