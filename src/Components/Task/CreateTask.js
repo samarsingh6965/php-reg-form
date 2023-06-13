@@ -15,15 +15,15 @@ const CreateTask = ({ createTask }) => {
     const email = localStorage.getItem(['email']);
     // to create a new task
     const handleSubmit = async (e) => {
-        const url = 'http://localhost/reg-form/task/create.php';
+        const url = 'http://localhost/reg-form/api.php/task/create';
         e.preventDefault();
         const FD = new FormData();
         FD.append('email', email);
         FD.append('task', task);
-        FD.append('description', description);
+        FD.append('desc', description);
         try {
-            const response = await axios.post(url, FD);
-            if (response.data?.code === 'SUCCESS') {
+            const response = await axios.post(url, FD, {headers:{token:localStorage.getItem('token')}});
+            if (response.data?.code === 'SUCCESS_200') {
                 navigate('/');
             } else {
                 setErrMessage(response?.data?.message)

@@ -18,11 +18,11 @@ const Login = () => {
         FD.append('password', pass);
         try {
             const response = await axios.post(url, FD);
-            if (response.data?.code === 'SUCCESS') {
-                localStorage.setItem('name', response.data.user['name'])
-                localStorage.setItem('email', response.data.user['email'])
-                localStorage.setItem('img_url', response.data.user['image_url'])
-                localStorage.setItem('token', response.data.token);
+            if (response.data?.code === 'SUCCESS_200') {
+                const data = response.data.data;
+                localStorage.setItem('name', data.user.name);
+                localStorage.setItem('img_url', data.user.image_url);
+                localStorage.setItem('token', data.token);
                 navigate('/');
             } else {
                 setErrMessage(response?.data?.message)

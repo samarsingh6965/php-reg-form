@@ -5,9 +5,13 @@ import { RiAccountPinCircleFill, RiLoginCircleFill, RiLogoutCircleRFill } from '
 
 const Navbar = () => {
 
+  // const {userInfo} = JSON.parse(localStorage.getItem('userInfo'));
+  // console.log(userInfo);
+  
+  // const login = userInfo.token;
   const login = localStorage.getItem('token');
   const img_url = localStorage.getItem('img_url');
-  const name = localStorage.getItem(['name']);
+  const name = localStorage.getItem('name');
   const [isMenu, setisMenu] = useState(false);
   const navigate = useNavigate();
 

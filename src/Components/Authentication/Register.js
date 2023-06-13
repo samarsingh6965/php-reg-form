@@ -30,13 +30,13 @@ const Register = () => {
         } else {
             try {
                 let response = await axios.post(url, FD)
-                if (response?.data?.code === 'SUCCESS') {
+                if (response?.data?.code === 'SUCCESS_200') {
                     navigate('/login');
                 } else {
                     setErrMessage(response?.data?.message)
                 }
             } catch ({ response }) {
-                console.log(response)
+                setErrMessage(response?.data?.message)
             }
         }
 
